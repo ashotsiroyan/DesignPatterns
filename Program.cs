@@ -108,6 +108,16 @@ namespace DesignPatterns
 
             c1.Draw();
 
+
+
+            /*--------------------------------  Decorator  --------------------------------*/
+            INotifier notifier = new SMSNotifier();
+            notifier = new WarningDecorator(notifier);
+            notifier = new ErrorDecorator(notifier);
+            Console.WriteLine();
+            notifier.Send("Something went wrong!");
+
+
             Console.ReadKey();
         }
     }
